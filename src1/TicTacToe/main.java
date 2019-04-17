@@ -9,7 +9,7 @@ public class main {
    static Scanner in = new Scanner(System.in);
      static int  boardsize;
      static int winnerCondition;
-
+     static char a ;
 
     public static void main(String[] args) {
         System.out.println("Please insert your name ");
@@ -36,11 +36,17 @@ public class main {
 
    static void f() {
 
-           System.out.println("Please choose x or 0");
+
         for (int i = 0; i < (boardsize*boardsize); i++) {
 
-            char a = in.next().charAt(0);
+            if(i%2==0){
+                a='x';
+
+            }
+            else
+                a='0';
             System.out.println("Please insert the coordinates");
+            System.out.println(a);
             int position1 = in.nextInt();
             int position2 = in.nextInt();
             if (BoardoftheGame.WhereAreYouGoingBro(BoardoftheGame.board, position1, position2, boardsize)) {
@@ -54,7 +60,7 @@ public class main {
 
             }
 
-            if(CheckIt(BoardoftheGame.board, winnerCondition))
+            if(CheckIt(BoardoftheGame.board, winnerCondition)==true)
             {
                 System.out.print(" The game is finished. ");
                 break;

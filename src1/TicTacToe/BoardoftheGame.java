@@ -27,8 +27,10 @@ public class BoardoftheGame {
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
                 board[i][j] = '.';
+                System.out.print(board[i][j]);
 
             }
+            System.out.println();
         }
     }
 
@@ -83,7 +85,7 @@ public class BoardoftheGame {
             int count1 = 0;
             for (int i = 0; i < board.length - 1; i++) {
                 int p = 0;
-                if (board[i][j] == 'x' || board[i][j] == '0') {
+
 
                     if (j + k <= winnerCondition && j + k < board.length - 1 && i + k < board.length - 1) {
                         p = j + k;
@@ -100,7 +102,8 @@ public class BoardoftheGame {
 
                         ++k;
 
-                    }
+
+
 
                 } else
                     break;
@@ -111,7 +114,7 @@ public class BoardoftheGame {
             int count2 = 0;
             for (int j = board.length; j > 0; --j) {
                 int p = 0;
-                if (board[i][j] == 'x' || board[i][j] == '0') {
+
                     if (i + k <= winnerCondition && i + k < board.length - 1 && j + k < board.length - 1) {
                         p = i + k;
                         if (board[p][j] == board[p + 1][j - 1]) {
@@ -123,7 +126,7 @@ public class BoardoftheGame {
                         ++k;
 
 
-                    }
+
                 } else
                     break;
             }
@@ -133,7 +136,7 @@ public class BoardoftheGame {
         for (int i = 0; i < board.length; ++i) {
             int count3 = 0;
             for (int j = 0; j < board.length - 1; ++j) {
-                if (board[i][j] == 'x' || board[i][j] == '0') {
+
 
                     if (board[i][j] == board[i][j + 1]) {
 
@@ -144,7 +147,7 @@ public class BoardoftheGame {
 
                         } else
                             count3 = 0;
-                    }
+
                 } else
                     break;
 
@@ -155,19 +158,19 @@ public class BoardoftheGame {
         for (int j = 0; j < board.length; ++j) {
             int count4 = 0;
             for (int i = 0; i < board.length - 1; ++i) {
-                if (board[i][j] == 'x' || board[i][j] == '0') {
+
                     if (board[i][j] == board[i + 1][j]) {
                         ++count4;
                         if (count4 >= winnerCondition) {
                             return true;
 
-                        }
+                        }else
+                            count4 = 0;
                     } else
-                        count4 = 0;
-                } else
-                    break;
+                        break;
+                }
 
-            }
+
 
 
         }
